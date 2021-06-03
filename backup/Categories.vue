@@ -1,7 +1,18 @@
 <template>
   <div class="news">
-      <div class="container">
-        <div v-for="(law, index) in getLawsCat()" v-bind:key="index" class="news__content">
+    <div class="news__content">
+      <div class="news__block">
+        <div class="subtitle">
+          <h2> Оберіть реформу </h2>
+        </div>
+        <div v-for="category in getCategories" v-bind:key="category" class="rooms__content">
+          <q-expansion-item
+                group="accordion"
+                expand-separator
+                :label=category
+                header-class="news__title"
+              >
+              <div v-for="(law, index) in getLawsCat(category)" v-bind:key="index" class="news__content">
           <div class="news__block">
             <h3 class="news__title">{{ law.text }}</h3>
             <div v-for="(change, index) in getLawsChange(law)" v-bind:key="index" class="news__text">
@@ -18,30 +29,36 @@
             </div>
           </div>
         </div>
+          </q-expansion-item>
+
+          <!-- <a href="#" @click="categorySelect(category)" class="button button--small-font button--medium button--white"> {{ category }} </a> -->
+        </div>
       </div>
     </div>
+  </div>
 </template>
 
 <script>
 import { mapGetters } from 'vuex'
 
 export default {
-  name: 'Laws',
-  props: [],
+  name: 'Categories',
   data () {
     return {
     }
   },
-  components: {
-  },
   methods: {
+    categorySelect (cat) {
+      this.$store.commit('setCategorie', cat)
+      this.$store.commit('setPage', 'Laws')
+    },
     pushForVoting (law) {
       this.$store.dispatch('pushForVoting', law)
     },
-    getLawsCat () {
+    getLawsCat (category) {
       var laws = []
       for (var lawCat in this.getLaws) {
-        if (this.getLaws[lawCat].category === this.getUser.currentCategorie) {
+        if (this.getLaws[lawCat].category === category) {
           laws.push(this.getLaws[lawCat])
         }
       }
@@ -59,6 +76,8 @@ export default {
       }
       return changes
     }
+  },
+  components: {
   },
   computed: {
     ...mapGetters([
@@ -90,6 +109,15 @@ export default {
         }
       }
       return adopted
+    },
+    getCategories () {
+      var categories = []
+      for (var law in this.getLaws) {
+        if (!categories.includes(this.getLaws[law].category) && (this.getLaws[law].category !== undefined)) {
+          categories.push(this.getLaws[law].category)
+        }
+      }
+      return categories
     }
   }
 }

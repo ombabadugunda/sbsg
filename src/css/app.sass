@@ -1,3 +1,18 @@
+
+.container
+  flex-direction: row
+  justify-content: center
+  display: flex
+  flex-wrap: wrap
+  max-width: 1200px
+  margin: 0 auto
+  min-height: 100%
+
+.break 
+  flex-basis: 100%
+  height: 0
+
+
 .main-container
   max-width: 1000px
   margin: 0 auto
@@ -50,6 +65,7 @@ textarea
 
 button, input[type="submit"]
   cursor: pointer
+  display: block
 
 button::-moz-focus-inner, input[type="submit"]::-moz-focus-inner
   padding: 0
@@ -118,7 +134,11 @@ table
 //   font-weight: 700
 //   font-style: normal
 
+html
+  height: 100%
+
 body
+  background: url(../images/bg1.jpg) repeat-x
   font-family: "Lato"
   background-color: #fff
   font-size: 14px
@@ -126,18 +146,15 @@ body
   letter-spacing: 0
   min-width: 320px
   overflow-x: hidden
-
+  padding: 20px
+  height:100%
 a
   text-decoration: none
 
   &:focus, &:hover
     text-decoration: none
 
-.container
-  width: 100%
-  margin: 0 auto
-  // max-width: 1300px
-  padding: 0
+
 
 .admin__select
   margin: 10px 0 10px 0
@@ -188,7 +205,8 @@ a
 
 .button--medium
   width: 100%
-  max-width: 328px
+  max-width: 392px
+  margin: 0 10px
 
 .button--center
   margin: 0 auto
@@ -234,13 +252,14 @@ a
 
 .login__title
   text-align: center
-  color: #2e476e
+  color: #C6AC8F
   font-weight: 700
   font-size: 40px
   line-height: 1.05em
   letter-spacing: 0.06em
   text-transform: uppercase
   padding-bottom: 96px
+  padding-top: 96px
 
 .login__checkbox
   margin: 0 12px
@@ -310,13 +329,16 @@ a
 .login__label
   display: block
   margin-bottom: 24px
+  align-self: center
 
   &:last-of-type
     margin-bottom: 48px
 
 .login__input
+  display: block
   padding: 17px 32px
   width: 100%
+  max-width: 392px
   background: #fff
   -webkit-box-shadow: inset 1px 2px 8px rgba(176, 195, 210, 0.6)
   box-shadow: inset 1px 2px 8px rgba(176, 195, 210, 0.6)
@@ -328,6 +350,7 @@ a
   font-weight: 600
   font-size: 16px
   line-height: 1em
+  margin: 0 auto
 
   &::-webkit-input-placeholder, &::-moz-placeholder, &:-ms-input-placeholder, &::-ms-input-placeholder, &::placeholder
     color: #afb8ca
@@ -338,6 +361,7 @@ a
 .subtitle
   margin-bottom: 35px
   text-align: center
+  width: 100%
 
   h2
     font-size: 24px
@@ -351,16 +375,27 @@ a
     line-height: 1.33em
 
 .header-nav
-  margin-bottom: 56px
-  position: fixed
+  margin-bottom: 40px
   left: 0
   top: 0
   right: 0
   z-index: 1000
+  width: 100%
+
+.header-active 
+  animation: blinker 2s linear infinite
+
+@keyframes blinker 
+  50% 
+    opacity: 0
+  
 
 
 .footer-nav 
   background-color: #fff
+  margin-top: 40px
+  align-self: flex-end
+  position: relative
   
 
 .text__green
@@ -381,20 +416,21 @@ a
   display: -webkit-box
   display: -ms-flexbox
   display: flex
+  align-items: center
+  justify-content: center
 
   a
     display: -webkit-box
     display: -ms-flexbox
     display: flex
 
-  padding: 24px 84px
+  padding: 24px 24px
   -webkit-box-shadow: 0 20px 35px rgba(0, 0, 0, 0.05)
   box-shadow: 0 20px 35px rgba(0, 0, 0, 0.05)
   border-radius: 30px
   background: #fff
   -webkit-box-pack: justify
   -ms-flex-pack: justify
-  justify-content: center
 
   li
     margin: 0 15px
@@ -485,9 +521,16 @@ a
       fill: #2e476e
 
 .news
-  padding: 136px 0
+  align-self: center
+  width:100%
+
+.news__content
+  margin-bottom: 10px
+  width: 100%
+  // text-align: center
 
 .news__block
+  width: 100%
   padding: 25px 24px
   margin-bottom: 24px
   background: #fff
@@ -498,7 +541,7 @@ a
 
 .admin__block
   padding: 25px 24px
-  margin: 10px
+  margin: 10px 0px
   background: #fff
   border: 1px solid rgba(0, 0, 0, 0.05)
   -webkit-box-shadow: 5px 5px 40px rgba(0, 0, 0, 0.1)
@@ -529,6 +572,8 @@ a
 
   p
     margin-bottom: 10px
+    overflow-wrap: break-word
+
 
 .news__info
   font-weight: 600
@@ -688,13 +733,13 @@ a
   padding: 136px 0
 
 .rooms__content .button, .rooms__main-button
-  margin-bottom: 40px
+  margin-bottom: 30px
 
 .rooms__content
   display: -webkit-box
   display: -ms-flexbox
   display: flex
-  width: 800px
+  width: 100%
   margin-bottom: 15px 
   -webkit-box-orient: horizontal
   -webkit-box-direction: normal
@@ -706,8 +751,6 @@ a
   -ms-flex-pack: justify
   justify-content: center
 
-  .button:nth-last-child(-n + 2)
-    margin-bottom: 0
 
 .bg-image 
     background-image: url(../images/bg.png)
@@ -716,7 +759,63 @@ a
     // opacity: 50%
     background-size: cover
 
-  
+.header-title
+  display: none
+  text-align: center
+  color: #2e476e
+  font-weight: 700
+  font-size: 40px
+  line-height: 1.05em
+  letter-spacing: 0.06em
+  text-transform: uppercase
+  margin-right: auto
 
+.icon-menu
+  font-size: 80px
+  display: none
+  color: #2e476e
+
+.q-btn--push, .q-btn__wrapper
+  height: 80px
+  border-bottom: 0
+  box-shadow: none
+
+.q-btn__wrapper:before
+  
+  
+.q-icon
+  font-size: 35px
+
+.menu-items
+  font-weight: 600
+  font-size: 18px
+  line-height: 1.33em
+  color: #2e476e
+
+.dropdown 
+  display: none
+
+.dropdown > span
+  border-bottom: 0
+  box-shadow: none
+  border-bottom: 0
+
+.minifooter
+  display: flex
+  justify-content: space-between
+
+.q-icon
+  font-size: 30px
+
+.timer
+  text-align: right
+  margin-left: auto
+  
+@media screen and ( max-width: 1200px )
+  .footer-nav, .header-nav__list > li
+    display: none
+  .header-title, .dropdown
+    display: block
+    
 
 /*# sourceMappingURL=app.css.map

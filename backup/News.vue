@@ -29,12 +29,11 @@ export default {
   },
   computed: {
     ...mapGetters([
-      'getGame',
+      'getCurrentGame',
       'getLaws'
     ]),
     getNews () {
-      var news = this.getGame.news
-      console.log(this.getGame)
+      var news = this.getCurrentGame.news
       const orderedNews = Object.keys(news).sort().reduceRight(
         (obj, key) => {
           obj[key] = news[key]

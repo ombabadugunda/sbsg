@@ -46,12 +46,15 @@ export default {
   },
   computed: {
     ...mapGetters([
-      'getGame'
+      'getCurrentGame'
     ])
   },
   mounted () {
-    for (var stat in this.getGame.wellbeing) {
-      this.chartData.datasets[0].data.push(this.getGame.wellbeing[stat])
+    for (var stat in this.getCurrentGame.groups) {
+      if (stat === 'Admin') {
+        continue
+      }
+      this.chartData.datasets[0].data.push(this.getCurrentGame.groups[stat].stats)
       this.chartData.labels.push(stat)
     }
     this.renderChart(this.chartData, this.options)

@@ -1,27 +1,28 @@
 <template>
-      <div class="rooms">
-        <div class="container">
-          <div class="subtitle">
-            <h2> Перелік кімнат для спілкування </h2>
-            <h2>Натисніть, щоб приєднатись до спілкування</h2>
-          </div>
-          <div class="rooms__main-button">
-            <a href="#" class="button button--small-font button--medium button--center"> Загальна зала </a>
-          </div>
-          <div class="rooms__content">
-            <a href="#" class="button button--small-font button--medium button--white"> Військовослужбовці </a>
-            <a href="#" class="button button--small-font button--medium button--white"> Бізнес </a>
-            <a href="#" class="button button--small-font button--medium button--white"> Чиновники </a>
-            <a href="#" class="button button--small-font button--medium button--white"> Співробітники правоохоронних органів і судді </a>
-            <a href="#" class="button button--small-font button--medium button--white"> Вразливі верстви населення </a>
-            <a href="#" class="button button--small-font button--medium button--white"> Митці та культурні діячі </a>
-            <a href="#" class="button button--small-font button--medium button--white"> ЗМІ </a>
-            <a href="#" class="button button--small-font button--medium button--white"> Громадські активісти </a>
-            <a href="#" class="button button--small-font button--medium button--white"> Пенсіонери </a>
-            <a href="#" class="button button--small-font button--medium button--white"> Бюджетники </a>
-          </div>
+  <div class="news">
+    <div class="news__content">
+      <div class="news__block">
+        <div class="subtitle">
+          <h2>Натисніть, щоб приєднатись до спілкування</h2>
+        </div>
+        <div class="rooms__main-button">
+          <a href="https://meet.google.com/pie-khqj-khq" target="_blank" class="button button--small-font button--medium button--center"> Загальна зала </a>
+        </div>
+        <div class="rooms__content">
+          <a href="https://meet.google.com/xpp-fqjo-sss" target="_blank" class="button button--small-font button--medium button--white"> Військовослужбовці </a>
+          <a href="https://meet.google.com/jhz-ffau-vrs" target="_blank" class="button button--small-font button--medium button--white"> Бізнес </a>
+          <a href="https://meet.google.com/knj-msbp-neb" target="_blank" class="button button--small-font button--medium button--white"> Чиновники </a>
+          <a href="https://meet.google.com/xhu-zquo-dfx" target="_blank" class="button button--small-font button--medium button--white"> Співробітники правоохоронних органів і судді </a>
+          <a href="https://meet.google.com/pdb-mmej-bqc" target="_blank" class="button button--small-font button--medium button--white"> Вразливі верстви населення </a>
+          <a href="https://meet.google.com/jqq-obsn-dbk" target="_blank" class="button button--small-font button--medium button--white"> Митці та культурні діячі </a>
+          <a href="https://meet.google.com/jia-mznm-nae" target="_blank" class="button button--small-font button--medium button--white"> ЗМІ </a>
+          <a href="https://meet.google.com/cnz-epbe-xce" target="_blank" class="button button--small-font button--medium button--white"> Громадські активісти </a>
+          <a href="https://meet.google.com/kzu-ibvg-qcf" target="_blank" class="button button--small-font button--medium button--white"> Пенсіонери </a>
+          <a href="https://meet.google.com/uss-kvyg-hed" target="_blank" class="button button--small-font button--medium button--white"> Бюджетники </a>
         </div>
       </div>
+    </div>
+  </div>
 </template>
 
 <script>

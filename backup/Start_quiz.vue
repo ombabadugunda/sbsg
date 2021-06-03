@@ -3,9 +3,8 @@
     <div class="news">
       <div class="container">
          <div class="subtitle">
+            <h2> Перед початком гри слід пройти невелике опитування </h2>
             <div class="news__block" >
-            <h2 v-if="getGame.gamePhase !== 'Game ended'" class="news__title"> Перед початком гри слід пройти невелике опитування </h2>
-            <h2 v-if="getGame.gamePhase === 'Game ended'" class="news__title"> Після завершення гри ми знову просимо вас пройти опитування слід пройти невелике опитування </h2>
             <h3 class="news__title">Який ви політичний лідер?</h3>
             <div class="news__text">
               <p>Існує чимало систем керування державою. Але найкраща – це, звісно, ви! Бо тільки ви знаєте, як буде найкраще і для суспільства, і для кожного індивіда. Зараз це і перевіримо!</p>
@@ -197,17 +196,14 @@ export default {
   },
   methods: {
     submitQuiz () {
-      var clearedSet = []
-      for (var q in this.question_set) {
-        clearedSet.push(this.question_set[q].split('.').join(''))
-      }
-      var quiz = _.zipObject(clearedSet, this.answer_set)
+      var quiz = _.zipObject(this.question_set, this.answer_set)
+      console.log(quiz)
       this.$store.dispatch('setQuizResults', quiz)
     }
   },
   computed: {
     ...mapGetters([
-      'getGame',
+      'getCurrentGame',
       'getLaws'
     ])
   }

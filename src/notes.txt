@@ -1,0 +1,41 @@
+{users:
+    {*email*:
+        {name: *,
+        number: *,
+        group: *,
+        startQuizPassed: false,
+        startQuizResults: {},
+        currentPage: *,
+        gameID: *,
+        playerNumber
+        }
+    },
+games: {
+    gameID:
+        {rules: {},
+        name: *,
+        phase: *,
+        round: *,
+        numberOfPlayers: *,
+        timing: {},
+        {"1":
+            {pushedLaws: 
+                {number: 
+                    {group: *}
+                    groups_voted: {
+                        0: 
+                    }
+                }
+            }
+        }
+        },
+    },
+
+
+тайминг
+убирать законы проголосованные +
+новости по одной-две +
+уведомление о новости+
+дерганье фазы+
+тест добавить
+звук новостей+

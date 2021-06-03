@@ -15,8 +15,8 @@
                 <div class="admin__block">
                   <h3 class="news__title">Поточна гра</h3>
                   <div class="news__text">
-                    <p>Раунд гри: {{ getGame.gameStage }} </p>
-                    <p>Фаза гри: {{ getGame.gamePhase }}</p>
+                    <p>Раунд гри: {{ getCurrentGame.gameStage }} </p>
+                    <p>Фаза гри: {{ getCurrentGame.gamePhase }}</p>
                   </div>
                 </div>
               </div>
@@ -25,24 +25,24 @@
               <div class="col-6">
                 <div class="admin__block">
                   <h3 class="news__title">Дані команд</h3>
-                  <div class="news__text" v-for="group in Object.keys(getGame.groups).sort()" v-bind:key="group">
-                    {{ group }} <span> {{ getGame.groups[group] }}</span>
+                  <div class="news__text" v-for="group in Object.keys(getCurrentGame.groups).sort()" v-bind:key="group">
+                    {{ group }} <span> {{ getCurrentGame.groups[group] }}</span>
                         <q-separator/>
                   </div>
                 </div>
               </div>
-              <!-- <div class="col-6">
+              <div class="col-6">
                 <div class="admin__block">
                   <h3 class="news__title">Акаунти</h3>
-                    <div class="news__text" v-for="group in Object.keys(getGame.groups).sort()" v-bind:key="group">
+                    <div class="news__text" v-for="group in Object.keys(getCurrentGame.groups).sort()" v-bind:key="group">
                       {{ group }} :
-                        <span v-for="(account, index) in getGame.login_set[group]" v-bind:key="index">
+                        <span v-for="(account, index) in getCurrentGame.login_set[group]" v-bind:key="index">
                           &ensp; {{ index }} {{ account.name }},
                         </span>
                         <q-separator/>
                     </div>
                 </div>
-              </div> -->
+              </div>
             </div>
             <div class="row">
               <div class="col-12">
@@ -86,12 +86,15 @@ export default {
   },
   computed: {
     ...mapGetters([
-      'getGame'
+      'getCurrentGame'
     ])
   },
   components: {
   },
   methods: {
+    setGameStage () {
+      this.$store.dispatch('setNextStageFirebase')
+    },
     startGame () {
       this.$store.dispatch('startGame')
     },

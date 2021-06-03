@@ -19,17 +19,17 @@
           </div>
           <div class="admin__block">
             <h3 class="news__title">Дані по всім іграм</h3>
-            <!-- <button class="button button--small-font button--small button--white" @click="renewGame()">Оновити</button> -->
+            <button class="button button--small-font button--small button--white" @click="renewGame()">Оновити</button>
 
-            <div class="news__text" v-for="(game, index) in getGames" v-bind:key="index">
+            <div class="news__text" v-for="(game, index) in allGames" v-bind:key="index">
                     <q-expansion-item
                     expand-separator
                     icon="videogame_asset"
-                    :label="game.name"
-                    :caption="index"
+                    :label="game.gameName"
+                    :caption="game.gameCreation"
                     >
               <q-separator/>
-              <!-- <div v-for="(account, index2) in allGames[index].login_set" v-bind:key="index2">
+              <div v-for="(account, index2) in allGames[index].login_set" v-bind:key="index2">
                 <p><strong>{{ index2 }}</strong></p>
                 <div v-for="(acc, index3) in allGames[index].login_set[index2]" v-bind:key="index3">
                   <p>Код: {{ index3 }} Ім'я: {{ acc.name }} <br>
@@ -39,7 +39,7 @@
                 </div>
                 </div>
                 <q-separator/>
-              </div> -->
+              </div>
               <q-separator/>
               </q-expansion-item>
             </div>
@@ -50,13 +50,27 @@
 
 <script>
 import { mapGetters } from 'vuex'
-import { groups } from '../json/groups.js'
+
+const allGroups = [
+  'Бізнес',
+  'Чиновники',
+  'Пенсіонери',
+  'Митці та культурні діячі',
+  'Співробітники правоохоронних органів і судді',
+  'ЗМІ',
+  'Громадські активісти',
+  'Бюджетники',
+  'Військовослужбовці',
+  'Вразливі верстви населення',
+  'Admin'
+]
 
 export default {
   name: 'Superadmin',
   data () {
     return {
-      gameStyle: 'Minecraft',
+      gameStyle: '',
+      allGames: {},
       new_news: {
         title: '',
         text: '',
@@ -71,7 +85,7 @@ export default {
   },
   computed: {
     ...mapGetters([
-      'getGames'
+      'getSuperadminSet'
     ])
   },
   components: {
@@ -109,7 +123,7 @@ export default {
 що відображає кілька параметрів, які визначатимуть поточний стан країни: Економіка, Політичні права, Якість життя та Безпека.
 Доля Марсії у ваших руках!`
       var currentGame = {
-        numberOfPlayers: 0,
+        activePlayers: 0,
         gameStyle: this.gameStyle,
         rules: {
           pushes: this.pushes,
@@ -124,9 +138,9 @@ export default {
           }
         },
         1: {},
-        gameID: 'G-' + currentTime.substring(7),
+        gameID: currentTime.substring(7),
         gameCreation: new Date(Number(currentTime)).toLocaleDateString('uk-UA') + ' ' + new Date(Number(currentTime)).toLocaleTimeString('uk-UA'),
-        name: this.gameName,
+        gameName: this.gameName,
         gameStage: 0,
         gamePhase: 'Registration',
         groups: {},
@@ -143,7 +157,7 @@ export default {
         return Math.floor(Math.random() * (max - min)) + min
       }
       currentGame.login_set = {}
-      for (var group of groups) {
+      for (var group of allGroups) {
         currentGame.groups[group] = {}
         currentGame.groups[group].stats = getRandomInt(20, 31)
         currentGame.groups[group].pushes = this.pushes
@@ -153,23 +167,23 @@ export default {
         currentGame.timing = {}
         currentGame.timing.timeToNextRound = 0
         currentGame.timing.timeToNextRound = 0
+
+        // for (let i = 0; i < this.playersNumber / 10; i++) {
+        //   const rand = Math.floor(Math.random() * 1000000)
+        //   currentGame.login_set[group][rand] = {}
+        //   currentGame.login_set[group][rand].name = ''
+        //   currentGame.login_set[group][rand].start_quiz = {}
+        //   currentGame.login_set[group][rand].start_quiz = { passed: false }
+        //   currentGame.login_set[group][rand].start_quiz.result = ''
+        // }
+        if (group === 'Admin') {
+          currentGame.groups[group].stats = 0
+          currentGame.groups[group].pushes = 10
+          currentGame.groups[group].votes = 10
+        }
       }
-      currentGame.groups.Admin = []
-      currentGame.groups.Admin.pushes = 10
-      currentGame.groups.Admin.votes = 10
-      currentGame['1'] = {}
-      currentGame['1'].pushedLaws = {}
-      currentGame['2'] = {}
-      currentGame['2'].pushedLaws = {}
-      currentGame['3'] = {}
-      currentGame['3'].pushedLaws = {}
-      currentGame['4'] = {}
-      currentGame['4'].pushedLaws = {}
-      currentGame['5'] = {}
-      currentGame['5'].pushedLaws = {}
-      currentGame['6'] = {}
-      currentGame['6'].pushedLaws = {}
-      this.$store.dispatch('createNewGame', currentGame)
+      this.$store.dispatch('setCurrentGameFirebase', currentGame)
+      this.allGames = this.getSuperadminSet
     }
   }
 }

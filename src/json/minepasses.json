@@ -1,0 +1,183 @@
+{
+  "1": {
+    "login": "sbsg.mars1@hotmail.com",
+    "password": "365mars21",
+    "name": "Business1"
+  },
+  "11": {
+    "login": "sbsg.mars2@outlook.com",
+    "password": "730mars42",
+    "name": "Business2"
+  },
+  "21": {
+    "login": "sbsg.mars3@outlook.com",
+    "password": "1095mars63",
+    "name": "Business3"
+  },
+  "31": {
+    "login": "sbsg.mars4@outlook.com",
+    "password": "1460mars84",
+    "name": "Business4"
+  },
+  "2": {
+    "login": "sbsg.mars5@hotmail.com",
+    "password": "1825mars105",
+    "name": "Bureaucrats1"
+  },
+  "12": {
+    "login": "sbsg.mars6@hotmail.com",
+    "password": "2190mars126",
+    "name": "Bureaucrats2"
+  },
+  "22": {
+    "login": "sbsg.mars7@hotmail.com",
+    "password": "2555mars147",
+    "name": "Bureaucrats3"
+  },
+  "32": {
+    "login": "sbsg.mars8@hotmail.com",
+    "password": "2920mars168",
+    "name": "Bureaucrats4"
+  },
+  "10": {
+    "login": "sbsg.mars9@hotmail.com",
+    "password": "3285mars189",
+    "name": "Vulnerable1"
+  },
+  "20": {
+    "login": "sbsg.mars10@hotmail.com",
+    "password": "3650mars210",
+    "name": "Vulnerable2"
+  },
+  "30": {
+    "login": "sbsg.mars11@hotmail.com",
+    "password": "4015mars231",
+    "name": "Vulnerable3"
+  },
+  "40": {
+    "login": "sbsg.mars12@hotmail.com",
+    "password": "4380mars252",
+    "name": "Vulnerable4"
+  },
+  "6": {
+    "login": "sbsg.mars13@hotmail.com",
+    "password": "4745mars273",
+    "name": "Media1"
+  },
+  "16": {
+    "login": "sbsg.mars14@hotmail.com",
+    "password": "5110mars294",
+    "name": "Media2"
+  },
+  "26": {
+    "login": "sbsg.mars15@hotmail.com",
+    "password": "5475mars315",
+    "name": "Media3"
+  },
+  "36": {
+    "login": "sbsg.mars16@hotmail.com",
+    "password": "5840mars336",
+    "name": "Media4"
+  },
+  "5": {
+    "login": "sbsg.mars17@hotmail.com",
+    "password": "6205mars357",
+    "name": "Law1"
+  },
+  "15": {
+    "login": "sbsg.mars18@hotmail.com",
+    "password": "6570mars378",
+    "name": "Law2"
+  },
+  "25": {
+    "login": "sbsg.mars19@hotmail.com",
+    "password": "6935mars399",
+    "name": "Law3"
+  },
+  "35": {
+    "login": "sbsg.mars20@hotmail.com",
+    "password": "7300mars420",
+    "name": "Law4"
+  },
+  "7": {
+    "login": "sbsg.mars21@hotmail.com",
+    "password": "7665mars441",
+    "name": "Activists1"
+  },
+  "17": {
+    "login": "sbsg.mars22@hotmail.com",
+    "password": "8030mars462",
+    "name": "Activists2"
+  },
+  "27": {
+    "login": "sbsg.mars23@hotmail.com",
+    "password": "8395mars483",
+    "name": "Activists3"
+  },
+  "37": {
+    "login": "sbsg.mars24@hotmail.com",
+    "password": "8760mars504",
+    "name": "Activists4"
+  },
+  "8": {
+    "login": "sbsg.mars25@hotmail.com",
+    "password": "9125mars525",
+    "name": "Public1"
+  },
+  "18": {
+    "login": "sbsg.mars26@hotmail.com",
+    "password": "9490mars546",
+    "name": "Public2"
+  },
+  "28": {
+    "login": "sbsg.mars27@hotmail.com",
+    "password": "9855mars567",
+    "name": "Public3"
+  },
+  "38": {
+    "login": "sbsg.mars28@hotmail.com",
+    "password": "10220mars588",
+    "name": "Public4"
+  },
+  "4": {
+    "login": "sbsg.mars29@hotmail.com",
+    "password": "10585mars609",
+    "name": "Artists1"
+  },
+  "14": {
+    "login": "sbsg.mars30@hotmail.com",
+    "password": "10950mars630",
+    "name": "Artists2"
+  },
+  "24": {
+    "login": "sbsg.mars31@hotmail.com",
+    "password": "11315mars651",
+    "name": "Artists3"
+  },
+  "34": {
+    "login": "sbsg.mars32@hotmail.com",
+    "password": "11680mars672",
+    "name": "Artists4"
+  },
+  "9": {
+    "login": "sbsg.mars33@hotmail.com",
+    "password": "12045mars693",
+    "name": "Military1"
+  },
+  "19": {
+    "login": "sbsg.mars34@hotmail.com",
+    "password": "12410mars714",
+    "name": "Military2"
+  },
+  "29": {
+    "login": "sbsg.mars35@hotmail.com",
+    "password": "12775mars735",
+    "name": "Military3"
+  },
+  "39": {
+    "login": "sbsg.mars36@hotmail.com",
+    "password": "13140mars756",
+    "name": "Military4"
+  },
+  "0": { "login": "None", "password": "None", "name": "Reserve" }
+}
