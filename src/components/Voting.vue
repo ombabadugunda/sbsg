@@ -1,10 +1,10 @@
 <template>
     <div class="news">
       <div class="news__content">
-          <div v-if="getGame.gameStage == '0'" class="news__block">
+          <div v-if="getGame.gamePhase == 'Registration'" class="news__block">
             <h3 class="news__title">Тут будуть з'являтись закони, що були висунуті на голосування</h3>
           </div>
-          <div v-if="getGame.gameStage != '0'" class="news__block">
+          <div v-if="getGame.gamePhase != 'Registration'" class="news__block">
             <div v-for="(stage, index) in getStages" v-bind:key="index" class="news__content">
               <q-expansion-item
                 expand-separator

@@ -39,14 +39,14 @@
             <p>Наступний раунд через: {{ parsedTime }} </p>
         </div>
       </div>
-      <div class="news__block">
+      <!-- <div class="news__block">
               <h3 class="news__title">Timer: {{ getTimer }}</h3>
               <h3 class="news__title">User: {{ getUser }}</h3>
               <h3 class="news__title">Users: {{ getUsers }}</h3>
               <h3 class="news__title">Game: {{ getGame }}</h3>
               <h3 class="news__title">Email: {{ getUserEmail }}</h3>
               <h3 class="news__title">All games: {{ getGames }}</h3>
-      </div>
+      </div> -->
     </div>
 </template>
 
