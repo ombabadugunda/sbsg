@@ -26,8 +26,8 @@
                 <h6>Ваше ім'я: {{ getUser.username }} </h6>
                 <h6 v-if="getGame.gameStyle == 'Minecraft' && getUser.group != 'Admin'">Логін до Minecraft: {{ minePasses[getUser.playerNumber + 1]['name'] }} </h6>
                 <h6 v-if="getGame.gameStyle == 'Minecraft' && getUser.group != 'Admin'">Пароль до Minecraft: {{ minePasses[getUser.playerNumber + 1]['password'] }} </h6>
-                <a v-if="getGame.gameStyle == 'Minecraft'" style="width: 300px" class="button button--small-font button--small button--white" href="https://drive.google.com/file/d/1WPBFJxqU8K5Q7UElV_streTDW8w_Bxat/view?usp=sharing" target="_blank">Завантажити гру для Windows</a>
-                <a v-if="getGame.gameStyle == 'Minecraft'" style="width: 300px" class="button button--small-font button--small button--white" href="https://drive.google.com/file/d/1WPBFJxqU8K5Q7UElV_streTDW8w_Bxat/view?usp=sharing" target="_blank">Завантажити гру для Windows</a>
+                <a v-if="getGame.gameStyle == 'Minecraft'" style="width: 300px" class="button button--small-font button--small button--white" href="https://drive.google.com/file/d/1HLJ78zU5FhQaUyTfxP0UnYcjooTIma68/view?usp=sharing" target="_blank">Завантажити гру для Windows</a>
+                <a v-if="getGame.gameStyle == 'Minecraft'" style="width: 300px" class="button button--small-font button--small button--white" href="https://drive.google.com/file/d/1HWpeQwozyLhUo7cHoWfWBXoxjSjvrlYY/view?usp=sharing" target="_blank">Завантажити гру для MacOS</a>
                 <a v-if="getGame.gameStyle == 'Meet'" style="width: 300px" class="button button--small-font button--small button--white" v-bind:href="getBackground" target="_blank">Завантажити фон для Meet</a>
                 <h6>Раунд гри: {{ getGame.gameStage }} </h6>
                 <h6>Фаза гри: {{ getGame.gamePhase }} </h6>

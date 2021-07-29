@@ -359,7 +359,7 @@ export default function () {
       startGame ({ commit, dispatch, getters }) {
         var startTime = Date.now()
         var timing = []
-        var c = 500 // с = 60000
+        var c = 60000 // с = 60000
         timing.push(startTime)
         timing.push(startTime + 15 * c)
         timing.push(startTime + 20 * c)
