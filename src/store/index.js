@@ -9,16 +9,21 @@ import { groups } from '../json/groups.js'
 var _ = require('lodash')
 // eslint-disable-next-line import/no-absolute-path
 import { config } from './firebase_config'
+
 // Initialize database
 
 firebase.initializeApp(config)
 
 // Functions
 
+// Setting player group on registration
+
 function selectGroup (playerNumber) {
   var userGroup = groups[playerNumber % 10]
   return userGroup
 }
+
+// Player count on registration
 
 function updatePlayerCount (gameID) {
   const dbRef = firebase.database().ref()
@@ -28,6 +33,8 @@ function updatePlayerCount (gameID) {
     return firebase.database().ref().update(updates)
   })
 }
+
+// Set timer on game start or geme reset
 
 function updateTiming (gameID, timing) {
   const dbRef = firebase.database().ref()
@@ -50,11 +57,15 @@ function updateVotesNumber (gameID, group, newVotesNumber) {
   return firebase.database().ref().update(updates)
 }
 
+// Add voted group to law voted list
+
 function updateVotedGroups (gameID, gameStage, law, group, length) {
   var updates = {}
   updates['games/' + gameID + '/' + gameStage + '/pushedLaws/' + law + '/groups_voted/' + length] = group
   return firebase.database().ref().update(updates)
 }
+
+// Update phase on timer
 
 function updatePhase (gameID, phase, oldPhase, pushes, votes, oldnewsLength, newnewsLength, { getters }) {
   var updates = {}
@@ -75,6 +86,8 @@ function updatePhase (gameID, phase, oldPhase, pushes, votes, oldnewsLength, new
   updates['games/' + gameID + '/gamePhase'] = newPhase
   return firebase.database().ref().update(updates)
 }
+
+// Drop votes and pushes to default on new round
 
 function resetVotes (gameID, pushes, votes) {
   var resetVotes = {}
@@ -132,6 +145,8 @@ function updateStats (gameID, { getters }, newStage) {
   return firebase.database().ref().update(updates)
 }
 
+// Add news on some wealthiness condition
+
 function addAutoNews ({ getters }) {
   var updates = {}
   var wellbeingList = ['Економіка', 'Політичні права', 'Якість життя', 'Безпека']
@@ -170,6 +185,8 @@ function getRandomInt (min, max) {
   max = Math.floor(max)
   return Math.floor(Math.random() * (max - min)) + min
 }
+
+// Store init
 
 let store = null
 Vue.use(Vuex)
@@ -311,6 +328,9 @@ export default function () {
             if (payload.username === 'admin@admin') {
               playerGroup = 'Admin'
               playerNumber = 'Admin'
+            } else if (payload.username === 'observer') {
+              playerGroup = 'Observer'
+              playerNumber = 'Observer'
             } else {
               playerGroup = selectGroup(getters.getGames[game].numberOfPlayers)
               updatePlayerCount(payload.gameID)
@@ -325,7 +345,7 @@ export default function () {
               startQuiz: 'None'
             })
             commit('setGameID', payload.gameID)
-            commit('setCurrentPage', 'Start_quiz')
+            commit('setCurrentPage', 'Rules')
             commit('setLogged', true)
             break
           }
@@ -364,13 +384,13 @@ export default function () {
         timing.push(startTime + 28 * c)
         var nextRoundTime = startTime + 28 * c
         for (var t = 1; t < 6; t++) {
-          timing.push(nextRoundTime + 10 * c)
+          timing.push(nextRoundTime + 7 * c)
+          timing.push(nextRoundTime + 9 * c)
+          timing.push(nextRoundTime + 11 * c)
           timing.push(nextRoundTime + 13 * c)
-          timing.push(nextRoundTime + 16 * c)
-          timing.push(nextRoundTime + 19 * c)
-          nextRoundTime += 19 * c
+          nextRoundTime += 13 * c
         }
-        timing.push(nextRoundTime + 3 * c)
+        timing.push(nextRoundTime + 1 * c)
         timing.push(0)
         updateTiming(getters.getUser.gameID, timing)
       },
@@ -440,7 +460,7 @@ export default function () {
           updatePhase(getters.getUser.gameID, phase, getters.getGame.gamePhase, getters.getGame.rules.pushes, getters.getGame.rules.votes, getters.getNewsLength, _.size(getters.getGame.news), { getters })
         }
         if (getters.getGame.gamePhase === 'Game ended') {
-          commit('setCurrentPage', 'Start_quiz')
+          commit('setCurrentPage', 'Rules')
         }
       },
       setQuizResults ({ commit, dispatch, getters }, quiz) {
@@ -461,9 +481,7 @@ export default function () {
 
   store = Store
 
-  // Quasar default
   return Store
 }
 
-// add this line to access store wherever you need
 export { store }

@@ -30,8 +30,6 @@
           </div>
         </div>
           </q-expansion-item>
-
-          <!-- <a href="#" @click="categorySelect(category)" class="button button--small-font button--medium button--white"> {{ category }} </a> -->
         </div>
       </div>
     </div>

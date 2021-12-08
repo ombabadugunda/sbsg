@@ -19,7 +19,7 @@
             <div class="news__block">
               <h3 class="news__title">Інформація про поточну гру</h3>
               <div class="news__text">
-                <a v-if="getGame.gamePhase == 'Game ended'" style="width: 300px" class="button button--small-font button--small button--center" href="https://forms.gle/iGEC9cHCnGfswGx77" target="_blank">Залиште відгук про гру, будь ласка!</a>
+                <!-- <a v-if="getGame.gamePhase == 'Game ended'" style="width: 300px" class="button button--small-font button--small button--center" href="https://forms.gle/iGEC9cHCnGfswGx77" target="_blank">Залиште відгук про гру, будь ласка!</a> -->
                 <h6>ID гри: {{ getUser.gameID }} </h6>
                 <h6>Назва гри: {{ getGame.name }} </h6>
                 <h6>Ваша група: {{ getUser.group }} </h6>
@@ -45,10 +45,10 @@
                 </ul>
                 <h6>Часові інтервали для наступних раундів  </h6>
                 <ul>
-                  <li>обговорення: 10</li>
-                  <li>висування законів: 3</li>
-                  <li>голосування: 3</li>
-                  <li>підведення підсумків: 3</li>
+                  <li>обговорення: 7</li>
+                  <li>висування законів: 2</li>
+                  <li>голосування: 2</li>
+                  <li>підведення підсумків: 2</li>
                 </ul>
               </div>
             </div>

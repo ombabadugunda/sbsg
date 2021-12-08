@@ -51,7 +51,7 @@ export default {
   },
   mounted () {
     for (var stat in this.getGame.groups) {
-      if (stat === 'Admin') {
+      if (stat === 'Admin' || stat === 'Observer') {
         continue
       }
       this.chartData.datasets[0].data.push(this.getGame.groups[stat].stats)

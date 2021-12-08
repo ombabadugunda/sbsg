@@ -6,7 +6,6 @@
             <div class="news__text">
               <p>Оберіть ігрові опції та натисніть "Згенерувати гру" </p>
             </div>
-              <!-- <q-select class="admin__select" rounded borderless v-model="playersNumber" :options="[10, 20, 30, 40]" label="Кількість гравців" /> -->
               <div class="news__text">
                 <q-radio v-model="gameStyle" val="Minecraft" label="Minecraft" /><br>
                 <q-radio v-model="gameStyle" val="Meet" label="Meet" /><br>
@@ -19,8 +18,6 @@
           </div>
           <div class="admin__block">
             <h3 class="news__title">Дані по всім іграм</h3>
-            <!-- <button class="button button--small-font button--small button--white" @click="renewGame()">Оновити</button> -->
-
             <div class="news__text" v-for="(game, index) in getGames" v-bind:key="index">
                     <q-expansion-item
                     expand-separator
@@ -29,17 +26,6 @@
                     :caption="index"
                     >
               <q-separator/>
-              <!-- <div v-for="(account, index2) in allGames[index].login_set" v-bind:key="index2">
-                <p><strong>{{ index2 }}</strong></p>
-                <div v-for="(acc, index3) in allGames[index].login_set[index2]" v-bind:key="index3">
-                  <p>Код: {{ index3 }} Ім'я: {{ acc.name }} <br>
-                  Результати стартового квізу:<br></p>
-                  <div v-for="(quiz, index4) in acc.start_quiz.result" v-bind:key="index4">
-                  <p><strong>Питання: {{ index4 }}</strong><br> Відповідь: {{ quiz }} </p>
-                </div>
-                </div>
-                <q-separator/>
-              </div> -->
               <q-separator/>
               </q-expansion-item>
             </div>
@@ -157,6 +143,9 @@ export default {
       currentGame.groups.Admin = []
       currentGame.groups.Admin.pushes = 10
       currentGame.groups.Admin.votes = 10
+      currentGame.groups.Observer = []
+      currentGame.groups.Observer.pushes = 0
+      currentGame.groups.Observer.votes = 0
       currentGame['1'] = {}
       currentGame['1'].pushedLaws = {}
       currentGame['2'] = {}

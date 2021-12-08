@@ -39,14 +39,6 @@
             <p>Наступний раунд через: {{ parsedTime }} </p>
         </div>
       </div>
-      <!-- <div class="news__block">
-              <h3 class="news__title">Timer: {{ getTimer }}</h3>
-              <h3 class="news__title">User: {{ getUser }}</h3>
-              <h3 class="news__title">Users: {{ getUsers }}</h3>
-              <h3 class="news__title">Game: {{ getGame }}</h3>
-              <h3 class="news__title">Email: {{ getUserEmail }}</h3>
-              <h3 class="news__title">All games: {{ getGames }}</h3>
-      </div> -->
     </div>
 </template>
 
@@ -73,12 +65,16 @@ export default {
       'getTimer'
     ]),
     parsedTime () {
+      // Setting time for Timer
+
       var date = new Date(-this.getTimer)
       var parsedTime = (date.getMinutes() < 10 ? '0' : '') + date.getMinutes() + ':' + (date.getSeconds() < 10 ? '0' : '') + date.getSeconds()
       return parsedTime
     }
   },
   created: function () {
+    // Setting game Phase and Round
+
     this.$store.dispatch('setGames')
     this.$store.dispatch('setUsers')
     var phaseOrder = ['0.Registration']
@@ -103,8 +99,6 @@ export default {
       }
     }, 1000)
   },
-  methods: {
-  },
   components: {
     categories: require('components/Categories.vue').default,
     statistics: require('components/Statistics.vue').default,
@@ -117,7 +111,6 @@ export default {
     rules: require('components/Rules.vue').default,
     quiz: require('components/Start_quiz.vue').default,
     navbar: require('components/Nav_bar.vue').default
-    // infopanel: require('components/Infopanel.vue').default
   }
 }
 </script>

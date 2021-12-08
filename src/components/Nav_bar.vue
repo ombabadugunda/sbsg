@@ -68,7 +68,6 @@
 
       </q-list>
     </q-btn-dropdown>
-        <!-- <q-icon class="icon-menu" name="menu" /> -->
         <li>
           <a href="#" @click="changePage('News')">
             <q-item-section avatar>

@@ -31,18 +31,6 @@
                   </div>
                 </div>
               </div>
-              <!-- <div class="col-6">
-                <div class="admin__block">
-                  <h3 class="news__title">Акаунти</h3>
-                    <div class="news__text" v-for="group in Object.keys(getGame.groups).sort()" v-bind:key="group">
-                      {{ group }} :
-                        <span v-for="(account, index) in getGame.login_set[group]" v-bind:key="index">
-                          &ensp; {{ index }} {{ account.name }},
-                        </span>
-                        <q-separator/>
-                    </div>
-                </div>
-              </div> -->
             </div>
             <div class="row">
               <div class="col-12">

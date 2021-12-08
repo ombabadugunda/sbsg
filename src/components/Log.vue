@@ -12,7 +12,7 @@
             <label v-if="getUserEmail !== ''" class="login__label" for="text">
               <input class="login__input" v-model="gameID" type="text" placeholder="ID гри" id="gameId" name="gameId" >
             </label>
-            <button v-if="getUserEmail !== ''" @click='setUserGame(gameID, username)' class="button button--center button--medium">Увійти</button>
+            <bucurrtton v-if="getUserEmail !== ''" @click='setUserGame(gameID, username)' class="button button--center button--medium">Увійти</bucurrtton>
     </div>
     </div>
 </template>

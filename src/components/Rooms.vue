@@ -6,19 +6,19 @@
           <h2>Натисніть, щоб приєднатись до спілкування</h2>
         </div>
         <div class="rooms__main-button">
-          <a href="https://meet.google.com/obr-fuig-zzf" target="_blank" class="button button--small-font button--medium button--center"> Загальна зала </a>
+          <a href="https://meet.google.com/xhv-qxrr-bkf" target="_blank" class="button button--small-font button--medium button--center"> Загальна зала </a>
         </div>
         <div class="rooms__content">
-          <a href="https://meet.google.com/ngx-hevh-kmx" target="_blank" class="button button--small-font button--medium button--white"> Військовослужбовці </a>
-          <a href="https://meet.google.com/ybn-befg-mbp" target="_blank" class="button button--small-font button--medium button--white"> Бізнес </a>
-          <a href="https://meet.google.com/orf-usai-rtb" target="_blank" class="button button--small-font button--medium button--white"> Чиновники </a>
-          <a href="https://meet.google.com/coa-efur-jvb" target="_blank" class="button button--small-font button--medium button--white"> Співробітники правоохоронних органів і судді </a>
-          <a href="https://meet.google.com/ffu-rxnf-bfh" target="_blank" class="button button--small-font button--medium button--white"> Вразливі верстви населення </a>
-          <a href="https://meet.google.com/xfg-xtwh-gzs" target="_blank" class="button button--small-font button--medium button--white"> Митці та культурні діячі </a>
-          <a href="https://meet.google.com/kne-wyqr-vdo" target="_blank" class="button button--small-font button--medium button--white"> ЗМІ </a>
-          <a href="https://meet.google.com/rvq-bqwp-qsk" target="_blank" class="button button--small-font button--medium button--white"> Громадські активісти </a>
-          <a href="https://meet.google.com/hrn-byea-vcf" target="_blank" class="button button--small-font button--medium button--white"> Пенсіонери </a>
-          <a href="https://meet.google.com/ewg-qmrr-tfj" target="_blank" class="button button--small-font button--medium button--white"> Бюджетники </a>
+          <a href="https://meet.google.com/zup-dpne-ctn" target="_blank" class="button button--small-font button--medium button--white"> Військовослужбовці </a>
+          <a href="https://meet.google.com/fop-vcdc-khk" target="_blank" class="button button--small-font button--medium button--white"> Бізнес </a>
+          <a href="https://meet.google.com/pqe-mwao-wbv" target="_blank" class="button button--small-font button--medium button--white"> Чиновники </a>
+          <a href="https://meet.google.com/szp-myxv-vbz" target="_blank" class="button button--small-font button--medium button--white"> Співробітники правоохоронних органів і судді </a>
+          <a href="https://meet.google.com/aev-jdjv-jon" target="_blank" class="button button--small-font button--medium button--white"> Вразливі верстви населення </a>
+          <a href="https://meet.google.com/buw-ohxi-fft" target="_blank" class="button button--small-font button--medium button--white"> Митці та культурні діячі </a>
+          <a href="https://meet.google.com/wqa-ojxh-smr" target="_blank" class="button button--small-font button--medium button--white"> ЗМІ </a>
+          <a href="https://meet.google.com/iur-yncm-uqv" target="_blank" class="button button--small-font button--medium button--white"> Громадські активісти </a>
+          <a href="https://meet.google.com/dci-vzho-mkn" target="_blank" class="button button--small-font button--medium button--white"> Пенсіонери </a>
+          <a href="https://meet.google.com/sur-xafw-juv" target="_blank" class="button button--small-font button--medium button--white"> Бюджетники </a>
         </div>
       </div>
     </div>
