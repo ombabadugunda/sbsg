@@ -293,6 +293,10 @@ export default function () {
       }
     },
     actions: {
+      deleteThisUser ({ commit, getters }) {
+        console.log(getters.getUser)
+        firebase.database().ref('users/' + getters.getUserEmail.split('@')[0]).remove()
+      },
       setTimeToNextRound ({ commit }, timer) {
         commit('setTimeToNextRound', timer)
       },

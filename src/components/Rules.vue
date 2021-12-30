@@ -20,15 +20,21 @@
               <h3 class="news__title">Інформація про поточну гру</h3>
               <div class="news__text">
                 <!-- <a v-if="getGame.gamePhase == 'Game ended'" style="width: 300px" class="button button--small-font button--small button--center" href="https://forms.gle/iGEC9cHCnGfswGx77" target="_blank">Залиште відгук про гру, будь ласка!</a> -->
-                <h6>ID гри: {{ getUser.gameID }} </h6>
+                <h6>ID гри: {{ getUser.gameID }} </h6>>
+                <button v-if="!exitGameConfirm" @click="toggleConfirm()" style="width: 300px" class="button button--small-font button--small button--blue">Вийти з поточної гри</button>
+                <h6 v-if="exitGameConfirm">Ви впевнені, що хочете вийти з поточної гри? Ви не зможете повернутись у свою команду </h6>>
+                <button v-if="exitGameConfirm" @click="exitGame()" style="width: 100px; display: inline" class="button button--small-font button--small button--blue">Так</button>
+                <button v-if="exitGameConfirm" @click="toggleConfirm()" style="width: 100px; display: inline" class="button button--small-font button--small button--white">Ні</button>
+                <q-separator />
                 <h6>Назва гри: {{ getGame.name }} </h6>
                 <h6>Ваша група: {{ getUser.group }} </h6>
                 <h6>Ваше ім'я: {{ getUser.username }} </h6>
                 <h6 v-if="getGame.gameStyle == 'Minecraft' && getUser.group != 'Admin'">Логін до Minecraft: {{ minePasses[getUser.playerNumber + 1]['name'] }} </h6>
                 <h6 v-if="getGame.gameStyle == 'Minecraft' && getUser.group != 'Admin'">Пароль до Minecraft: {{ minePasses[getUser.playerNumber + 1]['password'] }} </h6>
-                <a v-if="getGame.gameStyle == 'Minecraft'" style="width: 300px" class="button button--small-font button--small button--white" href="https://drive.google.com/file/d/1HLJ78zU5FhQaUyTfxP0UnYcjooTIma68/view?usp=sharing" target="_blank">Завантажити гру для Windows</a>
+                <a v-if="getGame.gameStyle == 'Minecraft'" style="width: 300px" class="button button--small-font button--small button--blue" href="https://drive.google.com/file/d/1HLJ78zU5FhQaUyTfxP0UnYcjooTIma68/view?usp=sharing" target="_blank">Завантажити гру для Windows</a>
                 <a v-if="getGame.gameStyle == 'Minecraft'" style="width: 300px" class="button button--small-font button--small button--white" href="https://drive.google.com/file/d/1HWpeQwozyLhUo7cHoWfWBXoxjSjvrlYY/view?usp=sharing" target="_blank">Завантажити гру для MacOS</a>
-                <a v-if="getGame.gameStyle == 'Meet'" style="width: 300px" class="button button--small-font button--small button--white" v-bind:href="getBackground" target="_blank">Завантажити фон для Meet</a>
+                <a v-if="getGame.gameStyle == 'Meet'" style="width: 300px" class="button button--small-font button--small button--blue" v-bind:href="getBackground" target="_blank">Завантажити фон для Meet</a>
+                <q-separator />
                 <h6>Раунд гри: {{ getGame.gameStage }} </h6>
                 <h6>Фаза гри: {{ getGame.gamePhase }} </h6>
                 <h6>Ваша група може висунути законів в цьому раунді: {{ getGame.groups[getUser.group].pushes }} </h6>
@@ -36,6 +42,7 @@
                 <h6>Голосів потрібно для прийняття закону: {{ getGame.rules.adoption_number }} </h6>
                 <h6>Тип гри: {{ getGame.gameStyle }} </h6>
                 <h6>Всього раундів: 6 </h6>
+                <q-separator />
                 <h6>Часові інтервали для першого раунду</h6>
                 <ul>
                   <li>обговорення: 15</li>
@@ -81,12 +88,20 @@ export default {
   name: 'News',
   data () {
     return {
-      minePasses
+      minePasses,
+      exitGameConfirm: false
     }
   },
   components: {
   },
   methods: {
+    toggleConfirm () {
+      this.exitGameConfirm = !this.exitGameConfirm
+    },
+    exitGame () {
+      this.$store.dispatch('deleteThisUser')
+      window.location.reload()
+    },
     getPlayers (group) {
       var players = {}
       var i = 1
